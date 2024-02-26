@@ -1,0 +1,2 @@
+module ComponentValidationsHelper
+end

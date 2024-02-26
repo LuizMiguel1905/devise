@@ -1,0 +1,2 @@
+module PcBuildingsHelper
+end

@@ -1,0 +1,14 @@
+<div id="<%= dom_id pc_building %>">
+    <p>
+        <strong>Nome do cliente:</strong>
+        <%= pc_building.clientName %>
+    </p>
+    <p>
+    <strong>Componentes:</strong>
+    <% (1..4).each do |i| %>
+      <% component = pc_building.send("component_#{i}") %>
+      <%= "#{component.componentName}, " if component %>
+    <% end %>
+  </p>
+
+</div>

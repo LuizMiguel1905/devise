@@ -1,0 +1,51 @@
+<%= form_with(model: component_attribute) do |form| %>
+  <% if component_attribute.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(component_attribute.errors.count, "error") %> prohibited this component_attribute from being saved:</h2>
+
+      <ul>
+        <% component_attribute.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :brand, style: "display: block" %>
+    <%= form.text_field :brand %>
+  </div>
+
+  <div>
+    <%= form.label :cpuSupport, style: "display: block" %>
+    <%= form.text_field :cpuSupport %>
+  </div>
+
+  <div>
+    <%= form.label :memorySlot, style: "display: block" %>
+    <%= form.number_field :memorySlot %>
+  </div>
+
+  <div>
+    <%= form.label :memoryLimit, style: "display: block" %>
+    <%= form.number_field :memoryLimit %>
+  </div>
+
+  <div>
+    <%= form.label :video, style: "display: block" %>
+    <%= form.check_box :video %>
+  </div>
+
+  <div>
+    <%= form.label :isGPU, style: "display: block" %>
+    <%= form.check_box :isGPU %>
+  </div>
+  <div>
+
+    <%= form.label :memory, style: "display: block" %>
+    <%= form.number_field :memory %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

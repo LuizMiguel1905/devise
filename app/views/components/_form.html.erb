@@ -1,0 +1,30 @@
+<%= form_with(model: component) do |form| %>
+  <% if component.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(component.errors.count, "error") %> prohibited this component from being saved:</h2>
+
+      <ul>
+        <% component.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :componentName, style: "display: block" %>
+    <%= form.text_field :componentName %>
+  </div>
+  <div>
+<div>
+  <%= form.select :component_validation_id, 
+                 options_from_collection_for_select(ComponentValidation.all, :id, lambda { |cv| "#{cv.componentType} - #{cv.component_attribute.brand} - #{cv.component_attribute.memory} - CpuSuportado #{cv.component_attribute.cpuSupport}" }), 
+                 {}, 
+                 { class: 'form-control' } %>
+</div>
+
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

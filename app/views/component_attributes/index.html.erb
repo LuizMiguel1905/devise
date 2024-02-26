@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Component attributes</h1>
+
+<div id="component_attributes">
+  <% @component_attributes.each do |component_attribute| %>
+    <%= render component_attribute %>
+    <p>
+      <%= link_to "Show this component attribute", component_attribute %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New component attribute", new_component_attribute_path %>

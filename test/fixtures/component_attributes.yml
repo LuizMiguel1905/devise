@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  cpuSupport: MyString
+  memorySlot: 1
+  memoryLimit: 1
+  video: false
+  memory: 1
+
+two:
+  brand: MyString
+  cpuSupport: MyString
+  memorySlot: 1
+  memoryLimit: 1
+  video: false
+  memory: 1
