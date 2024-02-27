@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Builders</h1>
+
+<div id="builders">
+  <% @builders.each do |builder| %>
+    <%= render builder %>
+    <p>
+      <%= link_to "Show this builder", builder %>
+    </p>
+  <% end %>
+</div>
+<script>
+function consultarAPI() {
+
+  fetch('http://127.0.0.1:3000/api/components')
+    .then(response => response.json())
+    .then(data => {
+
+      console.log(data);
+    })
+    .catch(error => console.error('Erro na consulta à API:', error));
+}
+
+
+consultarAPI();
+
+  </script>
+<%= link_to "New builder", new_builder_path %>

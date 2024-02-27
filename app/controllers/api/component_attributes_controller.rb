@@ -1,9 +1,12 @@
+module Api
 class ComponentAttributesController < ApplicationController
+  skip_before_action :verify_authenticity_token, if: :json_request?
   before_action :set_component_attribute, only: %i[ show edit update destroy ]
 
   # GET /component_attributes or /component_attributes.json
   def index
     @component_attributes = ComponentAttribute.all
+    render json: @component_attributes
   end
 
   # GET /component_attributes/1 or /component_attributes/1.json
@@ -58,6 +61,11 @@ class ComponentAttributesController < ApplicationController
   end
 
   private
+
+  def json_request?
+    request.format.json?
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_component_attribute
       @component_attribute = ComponentAttribute.find(params[:id])
@@ -67,4 +75,5 @@ class ComponentAttributesController < ApplicationController
     def component_attribute_params
       params.require(:component_attribute).permit(:brand, :cpuSupport, :memorySlot, :memoryLimit, :video  , :memory, :componentType, :isGPU)
     end
+end
 end

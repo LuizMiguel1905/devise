@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_26_193240) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_27_200625) do
+  create_table "build_computers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "builders", force: :cascade do |t|
+    t.integer "clientName"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "component_attributes", force: :cascade do |t|
     t.string "brand"
     t.string "cpuSupport"
@@ -39,19 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_26_193240) do
     t.index ["component_validation_id"], name: "index_components_on_component_validation_id"
   end
 
-  create_table "pc_buildings", force: :cascade do |t|
-    t.string "clientName"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "component_id", null: false
-    t.integer "component_id_1"
-    t.integer "component_id_2"
-    t.integer "component_id_3"
-    t.integer "component_id_4"
-    t.index ["component_id"], name: "index_pc_buildings_on_component_id"
-  end
-
   add_foreign_key "component_validations", "component_attributes"
   add_foreign_key "components", "component_validations"
-  add_foreign_key "pc_buildings", "components"
 end

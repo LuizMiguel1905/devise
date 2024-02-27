@@ -1,9 +1,12 @@
+module Api
 class ComponentValidationsController < ApplicationController
+  skip_before_action :verify_authenticity_token, if: :json_request?
   before_action :set_component_validation, only: %i[ show edit update destroy ]
 
   # GET /component_validations or /component_validations.json
   def index
     @component_validations = ComponentValidation.all
+    render json: @component_validations
   end
 
   # GET /component_validations/1 or /component_validations/1.json
@@ -58,6 +61,10 @@ class ComponentValidationsController < ApplicationController
   end
 
   private
+
+  def json_request?
+    request.format.json?
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_component_validation
       @component_validation = ComponentValidation.find(params[:id])
@@ -67,4 +74,5 @@ class ComponentValidationsController < ApplicationController
     def component_validation_params
       params.require(:component_validation).permit(:componentType, :component_validation,:component_attribute_id )
     end
+end
 end

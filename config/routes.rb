@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :pc_buildings
-  resources :component_attributes
-  resources :component_validations
-  resources :components
+  resources :builders
+  namespace :api do
+
+    resources :component_attributes
+    resources :component_validations
+    resources :components
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
