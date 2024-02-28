@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :builders
+  resources :computers
   namespace :api do
 
     resources :component_attributes

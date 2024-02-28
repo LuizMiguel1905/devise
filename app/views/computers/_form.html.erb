@@ -1,0 +1,44 @@
+<%= form_with(model: computer) do |form| %>
+  <% if computer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(computer.errors.count, "error") %> prohibited this computer from being saved:</h2>
+
+      <ul>
+        <% computer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :clientName, style: "display: block" %>
+    <%= form.text_field :clientName %>
+  </div>
+ <select class="component-dropdown" data-controller="test-two" data-action="change->test-two#updateSelectedComponent" data-test-two-hidden-field-id="computer_component1">
+
+  </select>
+  <%= form.hidden_field :component1, id: "computer_component1" %>
+
+  <select class="component-dropdown" data-controller="test-two" data-action="change->test-two#updateSelectedComponent" data-test-two-hidden-field-id="computer_component2">
+
+  </select>
+  <%= form.hidden_field :component2, id: "computer_component2" %>
+
+  <select class="component-dropdown" data-controller="test-two" data-action="change->test-two#updateSelectedComponent" data-test-two-hidden-field-id="computer_component3">
+
+  </select>
+  <%= form.hidden_field :component3, id: "computer_component3" %>
+
+  <select class="component-dropdown" data-controller="test-two" data-action="change->test-two#updateSelectedComponent" data-test-two-hidden-field-id="computer_component4">
+  </select>
+   <%= form.hidden_field :component4, id: "computer_component4" %>
+  
+  <%= form.number_field :qntOfSlot%>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

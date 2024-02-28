@@ -1,6 +1,6 @@
 require "test_helper"
 
-class BuilderTest < ActiveSupport::TestCase
+class ComputerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

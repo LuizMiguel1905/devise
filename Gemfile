@@ -26,6 +26,8 @@ gem "turbo-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem 'rails-erd', group: :development
+gem 'stimulus-rails'
+gem 'rack-cors'
 
 
 # Use Redis adapter to run Action Cable in production
