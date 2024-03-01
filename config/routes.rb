@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :computers
-  namespace :api do
 
-    resources :component_attributes
-    resources :component_validations
-    resources :components
+  namespace :api do
+    namespace :v1 do
+      resources :component_attributes
+      resources :component_validations
+      resources :components
+      resources :computers
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

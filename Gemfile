@@ -28,6 +28,7 @@ gem "jbuilder"
 gem 'rails-erd', group: :development
 gem 'stimulus-rails'
 gem 'rack-cors'
+gem 'httparty'
 
 
 # Use Redis adapter to run Action Cable in production

@@ -147,22 +147,22 @@ component_validation10 = ComponentValidation.create!(
 
 
 Component.create!(
-  componentName: "Kingston Hiper X",
+  componentName: "Kingston Hiper X 4GB",
   component_validation: component_validation1
 )
 
 Component.create!(
-  componentName: "Kingston Hiper X",
+  componentName: "Kingston Hiper X 8GB",
   component_validation: component_validation2
 )
 
 Component.create!(
-  componentName: "Kingston Hiper X",
+  componentName: "Kingston Hiper X 16GB",
   component_validation: component_validation3
 )
 
 Component.create!(
-  componentName: "Kingston Hiper X",
+  componentName: "Kingston Hiper X 32GB",
   component_validation: component_validation4
 )
 

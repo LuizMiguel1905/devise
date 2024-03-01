@@ -58,13 +58,11 @@ export default class extends Controller {
 
   updateSelectedComponent(event) {
     const selectedValue = event.target.value;
-    const hiddenFieldId = this.data.get("hiddenFieldId");
-    const hiddenField = document.getElementById(hiddenFieldId);
-    if (hiddenField) {
-      hiddenField.value = selectedValue;
-      console.log(hiddenField.value);
-      
-    }
-    }
+    const selectedValueAttribute = this.data.get("selectedValueAttribute");
+
+    this.element.setAttribute(selectedValueAttribute, selectedValue);
+    console.log(selectedValue);
+    
+  }
   
 }
