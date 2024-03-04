@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_01_165305) do
   create_table "component_attributes", force: :cascade do |t|
+    t.string "componentType"
     t.string "brand"
     t.string "cpuSupport"
     t.integer "memorySlot"
@@ -23,20 +24,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_165305) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "component_validations", force: :cascade do |t|
-    t.string "componentType"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "component_attribute_id", null: false
-    t.index ["component_attribute_id"], name: "index_component_validations_on_component_attribute_id"
-  end
-
   create_table "components", force: :cascade do |t|
     t.string "componentName"
+    t.integer "component_attribute_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "component_validation_id", null: false
-    t.index ["component_validation_id"], name: "index_components_on_component_validation_id"
+    t.index ["component_attribute_id"], name: "index_components_on_component_attribute_id"
   end
 
   create_table "computers", force: :cascade do |t|
@@ -53,6 +46,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_01_165305) do
     t.index ["computer_id"], name: "index_computers_components_on_computer_id"
   end
 
-  add_foreign_key "component_validations", "component_attributes"
-  add_foreign_key "components", "component_validations"
+  add_foreign_key "components", "component_attributes"
 end

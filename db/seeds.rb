@@ -1,5 +1,6 @@
 
 component_attribute1 = ComponentAttribute.create!(
+  componentType: 'RAM',
   brand: nil,
   cpuSupport: nil,
   isGPU: nil,
@@ -10,6 +11,7 @@ component_attribute1 = ComponentAttribute.create!(
 )
 
 component_attribute2 = ComponentAttribute.create!(
+  componentType: 'RAM',
   brand: nil,
   cpuSupport: nil,
   isGPU: nil,
@@ -20,6 +22,7 @@ component_attribute2 = ComponentAttribute.create!(
 )
 
 component_attribute3 = ComponentAttribute.create!(
+  componentType: 'RAM',
   brand: nil,
   cpuSupport: nil,
   isGPU: nil,
@@ -30,6 +33,7 @@ component_attribute3 = ComponentAttribute.create!(
 )
 
 component_attribute4 = ComponentAttribute.create!(
+  componentType: 'RAM',
   brand: nil,
   cpuSupport: nil,
   isGPU: nil,
@@ -40,6 +44,7 @@ component_attribute4 = ComponentAttribute.create!(
 )
 
 component_attribute5 = ComponentAttribute.create!(
+  componentType: 'CPU',
   brand: 'Intel',
   cpuSupport: nil,
   isGPU: nil,
@@ -49,6 +54,7 @@ component_attribute5 = ComponentAttribute.create!(
   memory: nil
 )
 component_attribute6 = ComponentAttribute.create!(
+  componentType: 'CPU',
   brand: 'AMD',
   cpuSupport: nil,
   isGPU: nil,
@@ -59,6 +65,7 @@ component_attribute6 = ComponentAttribute.create!(
 )
 
 component_attribute7 = ComponentAttribute.create!(
+  componentType: 'Motherboard',
   brand: nil,
   cpuSupport: 'Intel',
   isGPU: nil,
@@ -69,6 +76,7 @@ component_attribute7 = ComponentAttribute.create!(
 )
 
 component_attribute8 = ComponentAttribute.create!(
+  componentType: 'Motherboard',
   brand: nil,
   cpuSupport: 'AMD',
   isGPU: nil,
@@ -79,6 +87,7 @@ component_attribute8 = ComponentAttribute.create!(
 )
 
 component_attribute9 = ComponentAttribute.create!(
+  componentType: 'Motherboard',
   brand: nil,
   cpuSupport: 'BOTH',
   isGPU: nil,
@@ -89,6 +98,7 @@ component_attribute9 = ComponentAttribute.create!(
 )
 
 component_attribute10 = ComponentAttribute.create!(
+  componentType: 'GPU',
   brand: nil,
   cpuSupport: nil,
   isGPU: true,
@@ -97,121 +107,74 @@ component_attribute10 = ComponentAttribute.create!(
   video: false,
   memory: nil
 )
-component_validation1 = ComponentValidation.create!(
-  componentType: "RAM",
-  component_attribute: component_attribute1
-)
-
-component_validation2 = ComponentValidation.create!(
-  componentType: "RAM",
-  component_attribute: component_attribute2
-)
-component_validation3 = ComponentValidation.create!(
-  componentType: "RAM",
-  component_attribute: component_attribute3
-)
-component_validation4 = ComponentValidation.create!(
-  componentType: "RAM",
-  component_attribute: component_attribute4
-)
-
-component_validation5 = ComponentValidation.create!(
-  componentType: "CPU",
-  component_attribute: component_attribute5
-)
-
-component_validation6 = ComponentValidation.create!(
-  componentType: "CPU",
-  component_attribute: component_attribute6
-)
-
-component_validation7 = ComponentValidation.create!(
-  componentType: "Motherboard",
-  component_attribute: component_attribute7
-)
-
-component_validation8 = ComponentValidation.create!(
-  componentType: "Motherboard",
-  component_attribute: component_attribute8
-)
-
-component_validation9 = ComponentValidation.create!(
-  componentType: "Motherboard",
-  component_attribute: component_attribute9
-)
-
-component_validation10 = ComponentValidation.create!(
-  componentType: "GPU",
-  component_attribute: component_attribute10
-)
 
 
 Component.create!(
   componentName: "Kingston Hiper X 4GB",
-  component_validation: component_validation1
+  component_attribute: component_attribute1
 )
 
 Component.create!(
   componentName: "Kingston Hiper X 8GB",
-  component_validation: component_validation2
+  component_attribute: component_attribute2
 )
 
 Component.create!(
   componentName: "Kingston Hiper X 16GB",
-  component_validation: component_validation3
+  component_attribute: component_attribute3
 )
 
 Component.create!(
   componentName: "Kingston Hiper X 32GB",
-  component_validation: component_validation4
+  component_attribute: component_attribute4
 )
 
 Component.create!(
   componentName: "Core I5",
-  component_validation: component_validation5
+  component_attribute: component_attribute5
 )
 
 Component.create!(
   componentName: "Core I7",
-  component_validation: component_validation5
+  component_attribute: component_attribute5
 )
 
 Component.create!(
   componentName: "Ryzen 5",
-  component_validation: component_validation6
+  component_attribute: component_attribute6
 )
 
 Component.create!(
   componentName: "Ryzen 7",
-  component_validation: component_validation6
+  component_attribute: component_attribute6
 )
 
 Component.create!(
   componentName: "Asus ROG",
-  component_validation: component_validation7
+  component_attribute: component_attribute7
 )
 
 Component.create!(
   componentName: "Gigabyte Aorus",
-  component_validation: component_validation8
+  component_attribute: component_attribute8
 )
 
 Component.create!(
   componentName: "ASRock Steel Legend",
-  component_validation: component_validation9
+  component_attribute: component_attribute9
 )
 
 Component.create!(
   componentName: "Evga Geforce RTX 2060 6GB",
-  component_validation: component_validation10
+  component_attribute: component_attribute10
 )
 
 Component.create!(
   componentName: "Asus ROG Strix Geforce RTX 3060 6GB",
-  component_validation: component_validation10
+  component_attribute: component_attribute10
 )
 
 Component.create!(
   componentName: "Gigabyte Radeon RX 6600 XT EAGLE 8GB",
-  component_validation: component_validation10
+  component_attribute: component_attribute10
 )

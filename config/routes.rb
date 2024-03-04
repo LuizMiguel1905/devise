@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :component_attributes
-      resources :component_validations
-      resources :components
+          resources :components
       resources :computers
     end
   end

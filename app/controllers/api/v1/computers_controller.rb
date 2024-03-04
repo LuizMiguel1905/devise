@@ -17,16 +17,16 @@ class Api::V1::ComputersController < ApplicationController
   # POST /api/v1/computers
   def create
     @computer = Computer.new(computer_params)
-    if unique_component_types?
-      if @computer.save
-        render json: @computer, status: :created, location: api_v1_computer_url(@computer)
-      else
-        render json: @computer.errors, status: :unprocessable_entity
-      end
+
+    if @computer.save && valid_component_types?
+      render json: @computer, status: :created, location: api_v1_computer_url(@computer)
+    elsif cpu_validate?
+      render json: { error: "Falha na validação da CPU" }, status: :unprocessable_entity
     else
-      render json: { error: "Componentes repetidos" }, status: :unprocessable_entity
+      render json: { error: "Falha na validação dos componentes" }, status: :unprocessable_entity
     end
   end
+
 
   # PATCH/PUT /api/v1/computers/1
   def update
@@ -45,17 +45,33 @@ class Api::V1::ComputersController < ApplicationController
 
   private
 
-  def unique_component_types?
-    component_types = @computer.components.map { |component| component.component_validation.componentType }
-    component_types.uniq.length == component_types.length
-  end
-  def valid_component_ids?
-    components = Component.where(id: @computer.component_ids)
-    validations = ComponentValidation.where(component_attribute_id: components.pluck(:id))
 
-    validations.none? { |validation| validation.componentType == 'RAM' }
-  end
+  def cpu_validate?
+    cpu_validate = Component.joins(:component_attribute)
+                            .where('component_attributes.componentType = ?', 'CPU')
+                            .pluck(:brand)
+    mb_validate = Component.joins(:component_attribute)
+                           .where('component_attributes.componentType = ?', 'Motherboard')
+                           .pluck(:cpuSupport)
 
+puts "cpu_validate: #{cpu_validate}"
+puts "mb_validate: #{mb_validate}"
+
+    return cpu_validate.sort == mb_validate.sort
+  end
+  def valid_component_types?
+    component_names = params.dig(:computer, :component_names) || []
+
+    required_types = ['RAM', 'CPU', 'Motherboard', 'GPU']
+
+
+    unique_types = Component.joins(:component_attribute)
+                            .where(componentName: component_names)
+                            .select('DISTINCT component_attributes.componentType')
+                            .map(&:componentType)
+
+    return unique_types.sort == required_types.sort
+  end
   # Use callbacks to share common setup or constraints between actions.
   def set_computer
     @computer = Computer.find(params[:id])

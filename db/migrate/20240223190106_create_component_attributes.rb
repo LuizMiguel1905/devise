@@ -1,6 +1,7 @@
 class CreateComponentAttributes < ActiveRecord::Migration[7.1]
   def change
     create_table :component_attributes do |t|
+      t.string :componentType
       t.string :brand
       t.string :cpuSupport
       t.integer :memorySlot
