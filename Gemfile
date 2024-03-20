@@ -29,8 +29,11 @@ gem 'rails-erd', group: :development
 gem 'stimulus-rails'
 gem 'rack-cors'
 gem 'httparty'
-
-
+gem 'sassc'
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'sassc-rails', '~> 2.1.2'
+gem 'jsbundling-rails', '~> 1.3'
+gem 'webpacker', '~> 5.4', '>= 5.4.4'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

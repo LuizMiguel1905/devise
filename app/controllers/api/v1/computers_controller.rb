@@ -5,8 +5,15 @@ class Api::V1::ComputersController < ApplicationController
 
   # GET /api/v1/computers
   def index
-    @computers = Computer.all
-    render json: @computers
+    @computers = Computer.all.includes(:components)  # Make sure to eager load associated components
+    computers_with_component_names = @computers.map do |computer|
+      {
+        id: computer.id,
+        clientName: computer.clientName,
+        component_names: computer.components.pluck(:componentName)  # Include component_names
+      }
+    end
+    render json: computers_with_component_names
   end
 
   # GET /api/v1/computers/1
